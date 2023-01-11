@@ -14,10 +14,10 @@ class HomePage extends StatelessWidget {
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
+            children: [
               kHeight50,
-              TitleText(title: 'Calculate'),
-              TitleText(title: 'EMI'),
+              const TitleText(title: 'Calculate'),
+              const TitleText(title: 'EMI'),
               Expanded(
                 child: EmiForm(),
               )

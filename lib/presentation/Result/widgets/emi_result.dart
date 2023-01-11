@@ -8,7 +8,7 @@ class EmiResult extends StatelessWidget {
     super.key,
   });
 
-  final double emi;
+  final int? emi;
 
   @override
   Widget build(BuildContext context) {

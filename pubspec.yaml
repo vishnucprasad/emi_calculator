@@ -36,11 +36,13 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.1
   flutter_hooks: ^0.18.5+1
-  freezed: ^2.3.2
   freezed_annotation: ^2.2.0
   get_it: ^7.2.0
   google_fonts: ^3.0.1
   intl: ^0.18.0
+  json_annotation: ^4.7.0
+  json_serializable: ^6.5.4
+  odometer: ^3.0.0
   syncfusion_flutter_sliders: ^20.4.43
 
 dev_dependencies:
@@ -49,6 +51,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  freezed: ^2.3.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

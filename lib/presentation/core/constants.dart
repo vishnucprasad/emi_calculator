@@ -58,3 +58,27 @@ final kBoldTextStyle = TextStyle(
   ).fontFamily,
   fontSize: 16,
 );
+
+SnackBar customSnackBar({required String? errorMessage}) {
+  return SnackBar(
+    padding: EdgeInsets.zero,
+    content: Row(
+      children: [
+        Container(
+          width: 10,
+          height: 50,
+          color: kDangerColor,
+        ),
+        kWidth10,
+        const Icon(
+          Icons.warning,
+          color: kDangerColor,
+        ),
+        kWidth10,
+        Text(errorMessage ?? "Something went wrong")
+      ],
+    ),
+    backgroundColor: kSecondaryDarkColor,
+    behavior: SnackBarBehavior.fixed,
+  );
+}

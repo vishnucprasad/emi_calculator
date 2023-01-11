@@ -1,12 +1,19 @@
+import 'package:emi_calculator/domain/calculation/models/calculation.dart';
 import 'package:emi_calculator/presentation/Home/widgets/custom_button.dart';
 import 'package:emi_calculator/presentation/Result/widgets/details_list_item.dart';
 import 'package:emi_calculator/presentation/core/colors.dart';
 import 'package:emi_calculator/presentation/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:intl/intl.dart';
 
 class ResultDetails extends StatelessWidget {
-  const ResultDetails({super.key});
+  const ResultDetails({
+    required this.result,
+    super.key,
+  });
+
+  final Calculation? result;
 
   @override
   Widget build(BuildContext context) {
@@ -27,16 +34,33 @@ class ResultDetails extends StatelessWidget {
               padding:
                   const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
               child: ListView(
-                children: const [
-                  DetailsListItem(title: 'Due Date', value: "January 11, 2023"),
+                children: [
+                  DetailsListItem(
+                    title: 'Due Date',
+                    value: DateFormat.yMMMMd().format(
+                      DateTime.fromMillisecondsSinceEpoch(result!.dueDate),
+                    ),
+                  ),
                   kHeight10,
-                  DetailsListItem(title: 'End Date', value: "January 11, 2023"),
+                  DetailsListItem(
+                    title: 'End Date',
+                    value: DateFormat.yMMMMd().format(
+                      DateTime.fromMillisecondsSinceEpoch(result!.endDate),
+                    ),
+                  ),
                   kHeight10,
-                  DetailsListItem(title: 'Tenure', value: "36"),
+                  DetailsListItem(
+                      title: 'Tenure', value: result!.tenure.toString()),
                   kHeight10,
-                  DetailsListItem(title: 'Total Interest', value: "₹ 1643.99"),
+                  DetailsListItem(
+                    title: 'Total Interest',
+                    value: "₹ ${result!.totalInterest}",
+                  ),
                   kHeight10,
-                  DetailsListItem(title: 'Total Amount', value: "₹ 20000.0"),
+                  DetailsListItem(
+                    title: 'Total Amount',
+                    value: "₹ ${result!.totalAmount}",
+                  ),
                   kHeight10,
                 ],
               ),

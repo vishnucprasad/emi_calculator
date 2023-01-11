@@ -1,12 +1,17 @@
+import 'package:emi_calculator/application/calculation/calculation_bloc.dart';
 import 'package:emi_calculator/presentation/core/colors.dart';
 import 'package:emi_calculator/presentation/core/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TenurePicker extends StatelessWidget {
-  TenurePicker({super.key});
+  TenurePicker({
+    required this.tenure,
+    super.key,
+  });
 
-  final List yearsList = [12, 18, 24, 30, 36, 42, 48];
-  final ValueNotifier indexNotifier = ValueNotifier(0);
+  final List tenuresList = [12, 18, 24, 30, 36, 42, 48];
+  final int tenure;
 
   @override
   Widget build(BuildContext context) {
@@ -37,40 +42,39 @@ class TenurePicker extends StatelessWidget {
         kHeight10,
         SizedBox(
           height: 36,
-          child: ValueListenableBuilder(
-            valueListenable: indexNotifier,
-            builder: (context, value, child) {
-              return ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      indexNotifier.value = index;
-                    },
-                    child: Container(
-                      width: 60,
-                      decoration: BoxDecoration(
-                        color:
-                            value == index ? kPrimaryColor : kBackgroundColor,
-                        borderRadius: BorderRadius.circular(14),
-                      ),
-                      child: Center(
-                        child: Text(
-                          '${yearsList[index]}',
-                          style: TextStyle(
-                              color:
-                                  value == index ? kWhiteColor : kBlackColor),
-                        ),
-                      ),
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {
+                  context.read<CalculationBloc>().add(
+                        CalculationEvent.changeTenure(tenuresList[index]),
+                      );
+                },
+                child: Container(
+                  width: 60,
+                  decoration: BoxDecoration(
+                    color: tenure == tenuresList[index]
+                        ? kPrimaryColor
+                        : kBackgroundColor,
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Center(
+                    child: Text(
+                      '${tenuresList[index]}',
+                      style: TextStyle(
+                          color: tenure == tenuresList[index]
+                              ? kWhiteColor
+                              : kBlackColor),
                     ),
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return kWidth10;
-                },
-                itemCount: yearsList.length,
+                  ),
+                ),
               );
             },
+            separatorBuilder: (context, index) {
+              return kWidth10;
+            },
+            itemCount: tenuresList.length,
           ),
         ),
         kHeight10,

@@ -7,99 +7,102 @@ import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class CustomTextFormField extends HookWidget {
-  CustomTextFormField({
+  const CustomTextFormField({
     required this.label,
     required this.minValue,
     required this.maxValue,
+    required this.value,
+    required this.onSlide,
+    required this.onChanged,
+    required this.validator,
     super.key,
   });
 
   final String label;
   final double minValue;
   final double maxValue;
-  final ValueNotifier sliderValue = ValueNotifier(0.0);
+  final String value;
+  final void Function(dynamic) onSlide;
+  final void Function(String)? onChanged;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
     final controller = useTextEditingController(text: "0.0");
-    return ValueListenableBuilder(
-      valueListenable: sliderValue,
-      builder: (context, currentValue, child) {
-        return Stack(
+    return Stack(
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  label,
-                  style: const TextStyle(
-                    color: kPrimaryColor,
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                kHeight10,
-                TextFormField(
-                  controller: controller,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.allow(
-                      RegExp(r'^\d+\.?\d{0,2}'),
-                    ),
-                  ],
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      borderSide: BorderSide(
-                        color: kGreycolor!,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                      borderSide: BorderSide(
-                        color: kGreycolor!,
-                      ),
-                    ),
-                  ),
-                  onChanged: (value) {
-                    sliderValue.value =
-                        value.isEmpty ? 0.0 : double.parse(value);
-                  },
-                ),
-                kHeight25
-              ],
+            Text(
+              label,
+              style: const TextStyle(
+                color: kPrimaryColor,
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 5,
-              child: SfSliderTheme(
-                data: SfSliderThemeData(
-                  inactiveTrackHeight: 2,
-                  activeTrackHeight: 2.25,
-                  thumbStrokeWidth: 8.5,
-                  thumbStrokeColor: kPrimaryColor,
-                  thumbRadius: 12,
-                  activeTrackColor: kPrimaryColor,
-                  inactiveTrackColor: kPrimaryColor.withOpacity(0.4),
-                  thumbColor: kWhiteColor,
-                  overlayColor: kPrimaryColor.withOpacity(0.2),
-                  overlayRadius: 20,
+            kHeight10,
+            TextFormField(
+              controller: controller,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.allow(
+                  RegExp(r'^\d+\.?\d{0,2}'),
                 ),
-                child: SfSlider(
-                  min: minValue,
-                  max: maxValue,
-                  value: currentValue,
-                  onChanged: (value) {
-                    sliderValue.value = value;
-                    controller.text = value.toStringAsFixed(2).toString();
-                  },
+              ],
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(
+                    color: kGreycolor!,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide(
+                    color: kGreycolor!,
+                  ),
                 ),
               ),
-            )
+              onChanged: onChanged,
+            ),
+            kHeight25
           ],
-        );
-      },
+        ),
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 5,
+          child: SfSliderTheme(
+            data: SfSliderThemeData(
+              inactiveTrackHeight: 2,
+              activeTrackHeight: 2.25,
+              thumbStrokeWidth: 8.5,
+              thumbStrokeColor: kPrimaryColor,
+              thumbRadius: 12,
+              activeTrackColor: kPrimaryColor,
+              inactiveTrackColor: kPrimaryColor.withOpacity(0.4),
+              thumbColor: kWhiteColor,
+              overlayColor: kPrimaryColor.withOpacity(0.2),
+              overlayRadius: 20,
+            ),
+            child: SfSlider(
+              min: minValue,
+              max: maxValue,
+              value: double.parse(value),
+              onChanged: (value) {
+                onSlide(
+                  double.parse(
+                    value.toStringAsFixed(2),
+                  ),
+                );
+                controller.text = value.toStringAsFixed(2);
+              },
+            ),
+          ),
+        )
+      ],
     );
   }
 }

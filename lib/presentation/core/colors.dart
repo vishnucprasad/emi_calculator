@@ -10,3 +10,4 @@ const kSecondaryColor = Color(0xFF9B9EAE);
 const kBackgroundColor = Color(0xFFF1F3FA);
 const kInfoColor = Color(0xFF734D8A);
 const kSecondaryDarkColor = Color(0xFF413B5C);
+const kDangerColor = Colors.red;
