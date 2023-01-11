@@ -1,15 +1,15 @@
 import 'package:emi_calculator/presentation/core/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
     required this.text,
+    required this.onPressed,
     super.key,
   });
 
   final String text;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       height: 50,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor:
               MaterialStateProperty.all<Color>(kSecondaryDarkColor),

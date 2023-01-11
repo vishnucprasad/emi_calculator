@@ -3,7 +3,9 @@ import 'package:emi_calculator/presentation/Home/widgets/custom_text_form_field.
 import 'package:emi_calculator/presentation/Home/widgets/date_field.dart';
 import 'package:emi_calculator/presentation/Home/widgets/tenure_picker.dart';
 import 'package:emi_calculator/presentation/core/constants.dart';
+import 'package:emi_calculator/presentation/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:auto_route/auto_route.dart';
 
 class EmiForm extends StatelessWidget {
   const EmiForm({super.key});
@@ -32,7 +34,12 @@ class EmiForm extends StatelessWidget {
                 maxValue: 100,
               ),
               kHeight25,
-              const CustomButton(text: 'Calculate'),
+              CustomButton(
+                text: 'Calculate',
+                onPressed: () {
+                  context.router.push(const ResultRoute());
+                },
+              ),
             ],
           ),
         ),

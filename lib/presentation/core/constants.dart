@@ -51,3 +51,10 @@ final kTitleTextStyle = TextStyle(
     fontWeight: FontWeight.bold,
   ).fontFamily,
 );
+
+final kBoldTextStyle = TextStyle(
+  fontFamily: GoogleFonts.montserrat(
+    fontWeight: FontWeight.bold,
+  ).fontFamily,
+  fontSize: 16,
+);

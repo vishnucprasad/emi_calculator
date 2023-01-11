@@ -25,7 +25,7 @@ class TenurePicker extends StatelessWidget {
             ),
             Spacer(),
             Text(
-              'Years',
+              'Months',
               style: TextStyle(
                 color: kPrimaryColor,
                 fontSize: 15,
