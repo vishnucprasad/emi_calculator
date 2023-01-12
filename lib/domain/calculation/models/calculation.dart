@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'calculation.g.dart';
 part 'calculation.freezed.dart';
 
 @freezed
@@ -14,7 +13,4 @@ class Calculation with _$Calculation {
     final int totalInterest,
     final int totalAmount,
   ) = _Calculation;
-
-  factory Calculation.fromJson(Map<String, dynamic> json) =>
-      _$CalculationFromJson(json);
 }

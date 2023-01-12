@@ -30,9 +30,11 @@ class AppRouter extends _i3.RootStackRouter {
       );
     },
     ResultRoute.name: (routeData) {
+      final args = routeData.argsAs<ResultRouteArgs>(
+          orElse: () => const ResultRouteArgs());
       return _i3.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i2.ResultPage(),
+        child: _i2.ResultPage(key: args.key),
         transitionsBuilder: _i3.TransitionsBuilders.slideBottom,
         opaque: true,
         barrierDismissible: false,
@@ -67,12 +69,24 @@ class HomeRoute extends _i3.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.ResultPage]
-class ResultRoute extends _i3.PageRouteInfo<void> {
-  const ResultRoute()
+class ResultRoute extends _i3.PageRouteInfo<ResultRouteArgs> {
+  ResultRoute({_i4.Key? key})
       : super(
           ResultRoute.name,
           path: '/result-page',
+          args: ResultRouteArgs(key: key),
         );
 
   static const String name = 'ResultRoute';
+}
+
+class ResultRouteArgs {
+  const ResultRouteArgs({this.key});
+
+  final _i4.Key? key;
+
+  @override
+  String toString() {
+    return 'ResultRouteArgs{key: $key}';
+  }
 }

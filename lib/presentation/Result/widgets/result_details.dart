@@ -1,8 +1,10 @@
 import 'package:emi_calculator/domain/calculation/models/calculation.dart';
 import 'package:emi_calculator/presentation/Home/widgets/custom_button.dart';
 import 'package:emi_calculator/presentation/Result/widgets/details_list_item.dart';
+import 'package:emi_calculator/presentation/Result/widgets/share_button.dart';
 import 'package:emi_calculator/presentation/core/colors.dart';
 import 'package:emi_calculator/presentation/core/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:intl/intl.dart';
@@ -69,11 +71,19 @@ class ResultDetails extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.only(bottom: 20.0, left: 30.0, right: 30.0),
-            child: CustomButton(
-              text: "Recalculate",
-              onPressed: () {
-                context.router.pop();
-              },
+            child: Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    text: "Recalculate",
+                    onPressed: () {
+                      context.router.pop();
+                    },
+                  ),
+                ),
+                kWidth10,
+                const ShareButton(),
+              ],
             ),
           ),
         ],

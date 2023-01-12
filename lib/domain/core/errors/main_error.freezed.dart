@@ -14,16 +14,11 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-MainError _$MainErrorFromJson(Map<String, dynamic> json) {
-  return _MainError.fromJson(json);
-}
-
 /// @nodoc
 mixin _$MainError {
   String? get name => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MainErrorCopyWith<MainError> get copyWith =>
       throw _privateConstructorUsedError;
@@ -104,12 +99,9 @@ class __$$_MainErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_MainError implements _MainError {
   const _$_MainError(this.name, this.message);
-
-  factory _$_MainError.fromJson(Map<String, dynamic> json) =>
-      _$$_MainErrorFromJson(json);
 
   @override
   final String? name;
@@ -130,7 +122,6 @@ class _$_MainError implements _MainError {
             (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, message);
 
@@ -139,21 +130,11 @@ class _$_MainError implements _MainError {
   @pragma('vm:prefer-inline')
   _$$_MainErrorCopyWith<_$_MainError> get copyWith =>
       __$$_MainErrorCopyWithImpl<_$_MainError>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_MainErrorToJson(
-      this,
-    );
-  }
 }
 
 abstract class _MainError implements MainError {
   const factory _MainError(final String? name, final String? message) =
       _$_MainError;
-
-  factory _MainError.fromJson(Map<String, dynamic> json) =
-      _$_MainError.fromJson;
 
   @override
   String? get name;

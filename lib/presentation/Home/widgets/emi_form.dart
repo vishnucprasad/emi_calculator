@@ -108,7 +108,7 @@ class EmiForm extends StatelessWidget {
                       );
                     }
 
-                    context.router.push(const ResultRoute());
+                    context.router.push(ResultRoute());
                     context.read<CalculationBloc>().add(
                           const CalculationEvent.calculate(),
                         );

@@ -40,9 +40,10 @@ dependencies:
   get_it: ^7.2.0
   google_fonts: ^3.0.1
   intl: ^0.18.0
-  json_annotation: ^4.7.0
-  json_serializable: ^6.5.4
   odometer: ^3.0.0
+  path_provider: ^2.0.11
+  screenshot: ^1.3.0
+  share_plus: ^6.3.0
   syncfusion_flutter_sliders: ^20.4.43
 
 dev_dependencies:

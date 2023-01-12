@@ -63,8 +63,6 @@ class CalculationBloc extends Bloc<CalculationEvent, CalculationState> {
                 ),
               ),
             );
-
-            print(state.toString());
           },
         );
       },

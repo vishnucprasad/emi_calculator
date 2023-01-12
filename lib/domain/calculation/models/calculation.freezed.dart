@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Calculation _$CalculationFromJson(Map<String, dynamic> json) {
-  return _Calculation.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Calculation {
 // ignore: non_constant_identifier_names
@@ -28,7 +24,6 @@ mixin _$Calculation {
   int get totalInterest => throw _privateConstructorUsedError;
   int get totalAmount => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CalculationCopyWith<Calculation> get copyWith =>
       throw _privateConstructorUsedError;
@@ -163,13 +158,10 @@ class __$$_CalculationCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Calculation implements _Calculation {
   const _$_Calculation(this.EMI, this.dueDate, this.endDate, this.tenure,
       this.totalInterest, this.totalAmount);
-
-  factory _$_Calculation.fromJson(Map<String, dynamic> json) =>
-      _$$_CalculationFromJson(json);
 
 // ignore: non_constant_identifier_names
   @override
@@ -205,7 +197,6 @@ class _$_Calculation implements _Calculation {
                 other.totalAmount == totalAmount));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, EMI, dueDate, endDate, tenure, totalInterest, totalAmount);
@@ -215,13 +206,6 @@ class _$_Calculation implements _Calculation {
   @pragma('vm:prefer-inline')
   _$$_CalculationCopyWith<_$_Calculation> get copyWith =>
       __$$_CalculationCopyWithImpl<_$_Calculation>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_CalculationToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Calculation implements Calculation {
@@ -232,9 +216,6 @@ abstract class _Calculation implements Calculation {
       final int tenure,
       final int totalInterest,
       final int totalAmount) = _$_Calculation;
-
-  factory _Calculation.fromJson(Map<String, dynamic> json) =
-      _$_Calculation.fromJson;
 
   @override // ignore: non_constant_identifier_names
   int get EMI;
