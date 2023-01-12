@@ -13,8 +13,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class EmiForm extends StatelessWidget {
   EmiForm({super.key});
 
-  final TextEditingController amountController = TextEditingController();
-  final TextEditingController interestController = TextEditingController();
+  final TextEditingController amountController =
+      TextEditingController(text: "0.0");
+  final TextEditingController interestController =
+      TextEditingController(text: "0.0");
 
   @override
   Widget build(BuildContext context) {
