@@ -45,7 +45,16 @@ class AppBloc extends Bloc<AppEvent, AppState> {
             },
             (EmiScreenshot screenshot) {
               Share.shareXFiles(
-                  [XFile('${screenshot.directory}/${screenshot.filename}')]);
+                [XFile('${screenshot.directory}/${screenshot.filename}')],
+              );
+
+              emit(
+                state.copyWith(
+                  isLoading: false,
+                  screenshot: screenshot,
+                  screenshotSuccessOrFailure: some(right(screenshot)),
+                ),
+              );
             },
           );
         },
