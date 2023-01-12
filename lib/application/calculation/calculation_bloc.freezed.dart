@@ -23,6 +23,7 @@ mixin _$CalculationEvent {
     required TResult Function(int tenure) changeTenure,
     required TResult Function(double interest) changeRateOfInterest,
     required TResult Function() calculate,
+    required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$CalculationEvent {
     TResult? Function(int tenure)? changeTenure,
     TResult? Function(double interest)? changeRateOfInterest,
     TResult? Function()? calculate,
+    TResult? Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$CalculationEvent {
     TResult Function(int tenure)? changeTenure,
     TResult Function(double interest)? changeRateOfInterest,
     TResult Function()? calculate,
+    TResult Function()? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,7 @@ mixin _$CalculationEvent {
     required TResult Function(_ChangeTenure value) changeTenure,
     required TResult Function(_ChangeRateOfInterest value) changeRateOfInterest,
     required TResult Function(_Calculate value) calculate,
+    required TResult Function(_Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +64,7 @@ mixin _$CalculationEvent {
     TResult? Function(_ChangeTenure value)? changeTenure,
     TResult? Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult? Function(_Calculate value)? calculate,
+    TResult? Function(_Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +74,7 @@ mixin _$CalculationEvent {
     TResult Function(_ChangeTenure value)? changeTenure,
     TResult Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult Function(_Calculate value)? calculate,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -161,6 +167,7 @@ class _$_ChangeLoanDate implements _ChangeLoanDate {
     required TResult Function(int tenure) changeTenure,
     required TResult Function(double interest) changeRateOfInterest,
     required TResult Function() calculate,
+    required TResult Function() reset,
   }) {
     return changeLoanDate(date);
   }
@@ -173,6 +180,7 @@ class _$_ChangeLoanDate implements _ChangeLoanDate {
     TResult? Function(int tenure)? changeTenure,
     TResult? Function(double interest)? changeRateOfInterest,
     TResult? Function()? calculate,
+    TResult? Function()? reset,
   }) {
     return changeLoanDate?.call(date);
   }
@@ -185,6 +193,7 @@ class _$_ChangeLoanDate implements _ChangeLoanDate {
     TResult Function(int tenure)? changeTenure,
     TResult Function(double interest)? changeRateOfInterest,
     TResult Function()? calculate,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeLoanDate != null) {
@@ -201,6 +210,7 @@ class _$_ChangeLoanDate implements _ChangeLoanDate {
     required TResult Function(_ChangeTenure value) changeTenure,
     required TResult Function(_ChangeRateOfInterest value) changeRateOfInterest,
     required TResult Function(_Calculate value) calculate,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeLoanDate(this);
   }
@@ -213,6 +223,7 @@ class _$_ChangeLoanDate implements _ChangeLoanDate {
     TResult? Function(_ChangeTenure value)? changeTenure,
     TResult? Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult? Function(_Calculate value)? calculate,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeLoanDate?.call(this);
   }
@@ -225,6 +236,7 @@ class _$_ChangeLoanDate implements _ChangeLoanDate {
     TResult Function(_ChangeTenure value)? changeTenure,
     TResult Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult Function(_Calculate value)? calculate,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeLoanDate != null) {
@@ -312,6 +324,7 @@ class _$_ChangeLoanAmount implements _ChangeLoanAmount {
     required TResult Function(int tenure) changeTenure,
     required TResult Function(double interest) changeRateOfInterest,
     required TResult Function() calculate,
+    required TResult Function() reset,
   }) {
     return changeLoanAmount(amount);
   }
@@ -324,6 +337,7 @@ class _$_ChangeLoanAmount implements _ChangeLoanAmount {
     TResult? Function(int tenure)? changeTenure,
     TResult? Function(double interest)? changeRateOfInterest,
     TResult? Function()? calculate,
+    TResult? Function()? reset,
   }) {
     return changeLoanAmount?.call(amount);
   }
@@ -336,6 +350,7 @@ class _$_ChangeLoanAmount implements _ChangeLoanAmount {
     TResult Function(int tenure)? changeTenure,
     TResult Function(double interest)? changeRateOfInterest,
     TResult Function()? calculate,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeLoanAmount != null) {
@@ -352,6 +367,7 @@ class _$_ChangeLoanAmount implements _ChangeLoanAmount {
     required TResult Function(_ChangeTenure value) changeTenure,
     required TResult Function(_ChangeRateOfInterest value) changeRateOfInterest,
     required TResult Function(_Calculate value) calculate,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeLoanAmount(this);
   }
@@ -364,6 +380,7 @@ class _$_ChangeLoanAmount implements _ChangeLoanAmount {
     TResult? Function(_ChangeTenure value)? changeTenure,
     TResult? Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult? Function(_Calculate value)? calculate,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeLoanAmount?.call(this);
   }
@@ -376,6 +393,7 @@ class _$_ChangeLoanAmount implements _ChangeLoanAmount {
     TResult Function(_ChangeTenure value)? changeTenure,
     TResult Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult Function(_Calculate value)? calculate,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeLoanAmount != null) {
@@ -463,6 +481,7 @@ class _$_ChangeTenure implements _ChangeTenure {
     required TResult Function(int tenure) changeTenure,
     required TResult Function(double interest) changeRateOfInterest,
     required TResult Function() calculate,
+    required TResult Function() reset,
   }) {
     return changeTenure(tenure);
   }
@@ -475,6 +494,7 @@ class _$_ChangeTenure implements _ChangeTenure {
     TResult? Function(int tenure)? changeTenure,
     TResult? Function(double interest)? changeRateOfInterest,
     TResult? Function()? calculate,
+    TResult? Function()? reset,
   }) {
     return changeTenure?.call(tenure);
   }
@@ -487,6 +507,7 @@ class _$_ChangeTenure implements _ChangeTenure {
     TResult Function(int tenure)? changeTenure,
     TResult Function(double interest)? changeRateOfInterest,
     TResult Function()? calculate,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeTenure != null) {
@@ -503,6 +524,7 @@ class _$_ChangeTenure implements _ChangeTenure {
     required TResult Function(_ChangeTenure value) changeTenure,
     required TResult Function(_ChangeRateOfInterest value) changeRateOfInterest,
     required TResult Function(_Calculate value) calculate,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeTenure(this);
   }
@@ -515,6 +537,7 @@ class _$_ChangeTenure implements _ChangeTenure {
     TResult? Function(_ChangeTenure value)? changeTenure,
     TResult? Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult? Function(_Calculate value)? calculate,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeTenure?.call(this);
   }
@@ -527,6 +550,7 @@ class _$_ChangeTenure implements _ChangeTenure {
     TResult Function(_ChangeTenure value)? changeTenure,
     TResult Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult Function(_Calculate value)? calculate,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeTenure != null) {
@@ -616,6 +640,7 @@ class _$_ChangeRateOfInterest implements _ChangeRateOfInterest {
     required TResult Function(int tenure) changeTenure,
     required TResult Function(double interest) changeRateOfInterest,
     required TResult Function() calculate,
+    required TResult Function() reset,
   }) {
     return changeRateOfInterest(interest);
   }
@@ -628,6 +653,7 @@ class _$_ChangeRateOfInterest implements _ChangeRateOfInterest {
     TResult? Function(int tenure)? changeTenure,
     TResult? Function(double interest)? changeRateOfInterest,
     TResult? Function()? calculate,
+    TResult? Function()? reset,
   }) {
     return changeRateOfInterest?.call(interest);
   }
@@ -640,6 +666,7 @@ class _$_ChangeRateOfInterest implements _ChangeRateOfInterest {
     TResult Function(int tenure)? changeTenure,
     TResult Function(double interest)? changeRateOfInterest,
     TResult Function()? calculate,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (changeRateOfInterest != null) {
@@ -656,6 +683,7 @@ class _$_ChangeRateOfInterest implements _ChangeRateOfInterest {
     required TResult Function(_ChangeTenure value) changeTenure,
     required TResult Function(_ChangeRateOfInterest value) changeRateOfInterest,
     required TResult Function(_Calculate value) calculate,
+    required TResult Function(_Reset value) reset,
   }) {
     return changeRateOfInterest(this);
   }
@@ -668,6 +696,7 @@ class _$_ChangeRateOfInterest implements _ChangeRateOfInterest {
     TResult? Function(_ChangeTenure value)? changeTenure,
     TResult? Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult? Function(_Calculate value)? calculate,
+    TResult? Function(_Reset value)? reset,
   }) {
     return changeRateOfInterest?.call(this);
   }
@@ -680,6 +709,7 @@ class _$_ChangeRateOfInterest implements _ChangeRateOfInterest {
     TResult Function(_ChangeTenure value)? changeTenure,
     TResult Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult Function(_Calculate value)? calculate,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (changeRateOfInterest != null) {
@@ -742,6 +772,7 @@ class _$_Calculate implements _Calculate {
     required TResult Function(int tenure) changeTenure,
     required TResult Function(double interest) changeRateOfInterest,
     required TResult Function() calculate,
+    required TResult Function() reset,
   }) {
     return calculate();
   }
@@ -754,6 +785,7 @@ class _$_Calculate implements _Calculate {
     TResult? Function(int tenure)? changeTenure,
     TResult? Function(double interest)? changeRateOfInterest,
     TResult? Function()? calculate,
+    TResult? Function()? reset,
   }) {
     return calculate?.call();
   }
@@ -766,6 +798,7 @@ class _$_Calculate implements _Calculate {
     TResult Function(int tenure)? changeTenure,
     TResult Function(double interest)? changeRateOfInterest,
     TResult Function()? calculate,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (calculate != null) {
@@ -782,6 +815,7 @@ class _$_Calculate implements _Calculate {
     required TResult Function(_ChangeTenure value) changeTenure,
     required TResult Function(_ChangeRateOfInterest value) changeRateOfInterest,
     required TResult Function(_Calculate value) calculate,
+    required TResult Function(_Reset value) reset,
   }) {
     return calculate(this);
   }
@@ -794,6 +828,7 @@ class _$_Calculate implements _Calculate {
     TResult? Function(_ChangeTenure value)? changeTenure,
     TResult? Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult? Function(_Calculate value)? calculate,
+    TResult? Function(_Reset value)? reset,
   }) {
     return calculate?.call(this);
   }
@@ -806,6 +841,7 @@ class _$_Calculate implements _Calculate {
     TResult Function(_ChangeTenure value)? changeTenure,
     TResult Function(_ChangeRateOfInterest value)? changeRateOfInterest,
     TResult Function(_Calculate value)? calculate,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (calculate != null) {
@@ -817,6 +853,130 @@ class _$_Calculate implements _Calculate {
 
 abstract class _Calculate implements CalculationEvent {
   const factory _Calculate() = _$_Calculate;
+}
+
+/// @nodoc
+abstract class _$$_ResetCopyWith<$Res> {
+  factory _$$_ResetCopyWith(_$_Reset value, $Res Function(_$_Reset) then) =
+      __$$_ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetCopyWithImpl<$Res>
+    extends _$CalculationEventCopyWithImpl<$Res, _$_Reset>
+    implements _$$_ResetCopyWith<$Res> {
+  __$$_ResetCopyWithImpl(_$_Reset _value, $Res Function(_$_Reset) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'CalculationEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? date) changeLoanDate,
+    required TResult Function(double amount) changeLoanAmount,
+    required TResult Function(int tenure) changeTenure,
+    required TResult Function(double interest) changeRateOfInterest,
+    required TResult Function() calculate,
+    required TResult Function() reset,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? date)? changeLoanDate,
+    TResult? Function(double amount)? changeLoanAmount,
+    TResult? Function(int tenure)? changeTenure,
+    TResult? Function(double interest)? changeRateOfInterest,
+    TResult? Function()? calculate,
+    TResult? Function()? reset,
+  }) {
+    return reset?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? date)? changeLoanDate,
+    TResult Function(double amount)? changeLoanAmount,
+    TResult Function(int tenure)? changeTenure,
+    TResult Function(double interest)? changeRateOfInterest,
+    TResult Function()? calculate,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeLoanDate value) changeLoanDate,
+    required TResult Function(_ChangeLoanAmount value) changeLoanAmount,
+    required TResult Function(_ChangeTenure value) changeTenure,
+    required TResult Function(_ChangeRateOfInterest value) changeRateOfInterest,
+    required TResult Function(_Calculate value) calculate,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeLoanDate value)? changeLoanDate,
+    TResult? Function(_ChangeLoanAmount value)? changeLoanAmount,
+    TResult? Function(_ChangeTenure value)? changeTenure,
+    TResult? Function(_ChangeRateOfInterest value)? changeRateOfInterest,
+    TResult? Function(_Calculate value)? calculate,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return reset?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeLoanDate value)? changeLoanDate,
+    TResult Function(_ChangeLoanAmount value)? changeLoanAmount,
+    TResult Function(_ChangeTenure value)? changeTenure,
+    TResult Function(_ChangeRateOfInterest value)? changeRateOfInterest,
+    TResult Function(_Calculate value)? calculate,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements CalculationEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc

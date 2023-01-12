@@ -2,6 +2,7 @@ import 'package:emi_calculator/application/calculation/calculation_bloc.dart';
 import 'package:emi_calculator/presentation/Home/widgets/custom_button.dart';
 import 'package:emi_calculator/presentation/Home/widgets/custom_text_form_field.dart';
 import 'package:emi_calculator/presentation/Home/widgets/date_field.dart';
+import 'package:emi_calculator/presentation/Home/widgets/reset_button.dart';
 import 'package:emi_calculator/presentation/Home/widgets/tenure_picker.dart';
 import 'package:emi_calculator/presentation/core/constants.dart';
 import 'package:emi_calculator/presentation/router/app_router.gr.dart';
@@ -11,6 +12,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EmiForm extends StatelessWidget {
   EmiForm({super.key});
+
+  final TextEditingController amountController = TextEditingController();
+  final TextEditingController interestController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +32,7 @@ class EmiForm extends StatelessWidget {
                   minValue: 0.00,
                   maxValue: 10000000.00,
                   value: '${state.loanAmount}',
+                  controller: amountController,
                   validator: (amount) {
                     if (amount != null &&
                         amount.isNotEmpty &&
@@ -60,6 +65,7 @@ class EmiForm extends StatelessWidget {
                   minValue: 0.00,
                   maxValue: 100,
                   value: '${state.rateOfInterest}',
+                  controller: interestController,
                   validator: (interest) {
                     if (interest != null &&
                         interest.isNotEmpty &&
@@ -83,36 +89,53 @@ class EmiForm extends StatelessWidget {
                   },
                 ),
                 kHeight25,
-                CustomButton(
-                  text: 'Calculate',
-                  onPressed: () {
-                    if (state.loanDate == null) {
-                      return showErrorMessage(
-                        context: context,
-                        errorMessage: 'Please select a date',
-                      );
-                    }
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomButton(
+                        text: 'Calculate',
+                        onPressed: () {
+                          if (state.loanDate == null) {
+                            return showErrorMessage(
+                              context: context,
+                              errorMessage: 'Please select a date',
+                            );
+                          }
 
-                    if (state.loanAmount == null || state.loanAmount == 0) {
-                      return showErrorMessage(
-                        context: context,
-                        errorMessage: 'Please enter the loan amount',
-                      );
-                    }
+                          if (state.loanAmount == null ||
+                              state.loanAmount == 0) {
+                            return showErrorMessage(
+                              context: context,
+                              errorMessage: 'Please enter the loan amount',
+                            );
+                          }
 
-                    if (state.rateOfInterest == null ||
-                        state.rateOfInterest == 0) {
-                      return showErrorMessage(
-                        context: context,
-                        errorMessage: 'Please enter the rate of interest',
-                      );
-                    }
+                          if (state.rateOfInterest == null ||
+                              state.rateOfInterest == 0) {
+                            return showErrorMessage(
+                              context: context,
+                              errorMessage: 'Please enter the rate of interest',
+                            );
+                          }
 
-                    context.router.push(ResultRoute());
-                    context.read<CalculationBloc>().add(
-                          const CalculationEvent.calculate(),
-                        );
-                  },
+                          context.router.push(ResultRoute());
+                          context.read<CalculationBloc>().add(
+                                const CalculationEvent.calculate(),
+                              );
+                        },
+                      ),
+                    ),
+                    kWidth10,
+                    ResetButton(
+                      onPressed: () {
+                        amountController.text = "0.0";
+                        interestController.text = "0.0";
+                        context
+                            .read<CalculationBloc>()
+                            .add(const CalculationEvent.reset());
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),

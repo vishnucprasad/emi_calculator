@@ -2,16 +2,16 @@ import 'package:emi_calculator/presentation/core/colors.dart';
 import 'package:emi_calculator/presentation/core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
-class CustomTextFormField extends HookWidget {
+class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     required this.label,
     required this.minValue,
     required this.maxValue,
     required this.value,
+    required this.controller,
     required this.onSlide,
     required this.onChanged,
     required this.validator,
@@ -22,13 +22,13 @@ class CustomTextFormField extends HookWidget {
   final double minValue;
   final double maxValue;
   final String value;
+  final TextEditingController controller;
   final void Function(dynamic) onSlide;
   final void Function(String)? onChanged;
   final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
-    final controller = useTextEditingController(text: "0.0");
     return Stack(
       children: [
         Column(
