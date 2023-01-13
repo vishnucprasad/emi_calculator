@@ -31,7 +31,9 @@ Future<Either<MainError, EmiScreenshot>> takeScreenshot(
   } catch (e) {
     return left(
       const MainError(
-          "ScreenshotError", "Can't take screenshot somthing went wrong"),
+        "ScreenshotError",
+        "Can't take screenshot somthing went wrong",
+      ),
     );
   }
 }

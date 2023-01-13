@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 class ResetButton extends StatelessWidget {
   const ResetButton({
     required this.onPressed,
+    required this.isLoading,
     Key? key,
   }) : super(key: key);
 
   final void Function()? onPressed;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +27,16 @@ class ResetButton extends StatelessWidget {
             ),
           ),
         ),
-        child: const Icon(
-          CupertinoIcons.refresh_thick,
-        ),
+        child: isLoading
+            ? const SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(
+                  color: kWhiteColor,
+                ))
+            : const Icon(
+                CupertinoIcons.refresh_thick,
+              ),
       ),
     );
   }

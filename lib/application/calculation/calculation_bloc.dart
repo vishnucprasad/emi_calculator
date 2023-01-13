@@ -64,6 +64,11 @@ class CalculationBloc extends Bloc<CalculationEvent, CalculationState> {
               ),
             );
           },
+          reCalculate: (_ReCalculate value) {
+            emit(
+              state.copyWith(successOrError: none()),
+            );
+          },
           reset: (_Reset value) {
             emit(CalculationState.initial());
           },

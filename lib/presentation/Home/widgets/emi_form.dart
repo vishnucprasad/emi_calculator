@@ -21,7 +21,7 @@ class EmiForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: BlocBuilder<CalculationBloc, CalculationState>(
+      child: BlocConsumer<CalculationBloc, CalculationState>(
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(30.0),
@@ -120,7 +120,6 @@ class EmiForm extends StatelessWidget {
                             );
                           }
 
-                          context.router.push(ResultRoute());
                           context.read<CalculationBloc>().add(
                                 const CalculationEvent.calculate(),
                               );
@@ -129,6 +128,7 @@ class EmiForm extends StatelessWidget {
                     ),
                     kWidth10,
                     ResetButton(
+                      isLoading: state.isLoading,
                       onPressed: () {
                         amountController.text = "0.0";
                         interestController.text = "0.0";
@@ -142,6 +142,21 @@ class EmiForm extends StatelessWidget {
               ],
             ),
           );
+        },
+        listenWhen: (previous, current) =>
+            previous.successOrError != current.successOrError ||
+            previous.error != current.error,
+        listener: (context, state) {
+          if (state.error != null) {
+            return showErrorMessage(
+              context: context,
+              errorMessage: state.error?.message,
+            );
+          }
+
+          if (!state.successOrError.isNone()) {
+            context.router.push(ResultRoute());
+          }
         },
       ),
     );

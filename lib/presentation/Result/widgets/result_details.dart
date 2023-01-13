@@ -1,3 +1,4 @@
+import 'package:emi_calculator/application/calculation/calculation_bloc.dart';
 import 'package:emi_calculator/domain/calculation/models/calculation.dart';
 import 'package:emi_calculator/presentation/Home/widgets/custom_button.dart';
 import 'package:emi_calculator/presentation/Result/widgets/details_list_item.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ResultDetails extends StatelessWidget {
   const ResultDetails({
@@ -76,7 +78,10 @@ class ResultDetails extends StatelessWidget {
                 Expanded(
                   child: CustomButton(
                     text: "Recalculate",
-                    onPressed: () {
+                    onPressed: () async {
+                      context.read<CalculationBloc>().add(
+                            const CalculationEvent.reCalculate(),
+                          );
                       context.router.pop();
                     },
                   ),

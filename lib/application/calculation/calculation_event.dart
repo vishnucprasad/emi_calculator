@@ -9,5 +9,7 @@ class CalculationEvent with _$CalculationEvent {
   const factory CalculationEvent.changeRateOfInterest(double interest) =
       _ChangeRateOfInterest;
   const factory CalculationEvent.calculate() = _Calculate;
+  const factory CalculationEvent.reCalculate() = _ReCalculate;
+
   const factory CalculationEvent.reset() = _Reset;
 }
